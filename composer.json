@@ -1,0 +1,25 @@
+{
+    "name": "paulr/php-framework",
+    "description": "Basic custom PHP framework to build websites",
+    "authors": [
+        {
+            "name": "Paul Rodriguez"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^7.4"
+    },
+    "autoload": {
+    "psr-4": {
+      "Model\\":"app/models/",
+      "Config\\":"app/config/",
+      "Routes\\":"app/routes/"
+    },
+    "autoload-dev": {
+    	"psr-4": {
+            "Tests\\": "tests/",
+            "Tests\\Unit\\":"tests/Unit"
+        }
+    }
+  }
+}

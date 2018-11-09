@@ -1,0 +1,14 @@
+{
+	"db": {
+		"mysql": {
+			"host":"localhost",
+			"username":"root",
+			"password":"",
+			"port":"",
+			"database_name":""
+		},
+		"sqlite": {
+		
+		}
+	}
+}
