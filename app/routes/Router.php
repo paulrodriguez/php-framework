@@ -2,43 +2,45 @@
 namespace Routes;
 
 class Router {
-  private $_routes;
-  public function __construct() {
-      $this->_routes = array();
-      $this->get('/',function() {
-        echo 'homepage';
-      });
-  }
+  private static $_routes = array();
+  private static $_request;
 
-  public function run() {
-    $request_uri = $_SERVER['REQUEST_URI'];
 
-    foreach($this->_routes as $route=>$method) {
+
+
+  public static function run() {
+    self::$_request = new \Model\Request();
+    $request = self::$_request;
+
+
+    $request_uri = $request->getRequestUri();
+
+    foreach(self::$_routes as $route=>$method) {
       if($route==$request_uri) {
-        call_user_func($method);
+        call_user_func_array($method, array($request));
         break;
       }
     }
   }
 
-  public function get($path,$callback) {
-    $path = trim(trim($path),'/');
+  public static function get($path,$callback) {
+    $path = rtrim(trim($path),'/');
     if($path == '') {
       $path = '/';
     }
 
-    $this->_routes[$path] = $callback;
+    self::$_routes[$path] = $callback;
   }
 
-  public function post($path,$callback) {
-
-  }
-
-  public function delete($path,$callback) {
+  public static function post($path,$callback) {
 
   }
 
-  public function put($path,$callback) {
+  public static function delete($path,$callback) {
+
+  }
+
+  public static function put($path,$callback) {
 
   }
 

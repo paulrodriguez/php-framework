@@ -13,7 +13,8 @@
     "psr-4": {
       "Model\\":"app/models/",
       "Config\\":"app/config/",
-      "Routes\\":"app/routes/"
+      "Routes\\":"app/routes/",
+      "Controller\\":"app/controllers/"
     },
     "autoload-dev": {
     	"psr-4": {
